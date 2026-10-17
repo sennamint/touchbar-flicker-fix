@@ -1,12 +1,13 @@
 #!/bin/bash
-# Builds TouchBarOff, puts it in ~/Applications and starts it now and at every login.
+# Builds TouchBar Flicker Fix and starts it now and at every login.
 set -euo pipefail
 
 cd "$(dirname "$0")"
 
 LABEL=io.github.gbili.TouchBarOff
-APP="$HOME/Applications/TouchBarOff.app"
-BINARY="$APP/Contents/MacOS/TouchBarOff"
+APP="$HOME/Applications/TouchBar Flicker Fix.app"
+OLD_APP="$HOME/Applications/TouchBarOff.app"
+BINARY="$APP/Contents/MacOS/TouchBarFlickerFix"
 AGENT="$HOME/Library/LaunchAgents/$LABEL.plist"
 DOMAIN="gui/$(id -u)"
 
@@ -25,11 +26,13 @@ if launchctl print "$DOMAIN/$LABEL" >/dev/null 2>&1; then
     done
 fi
 
-mkdir -p "$APP/Contents/MacOS" "$HOME/Library/LaunchAgents"
+mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$HOME/Library/LaunchAgents"
 cp Info.plist "$APP/Contents/Info.plist"
-swiftc -O main.swift -o "$BINARY"
+cp Assets/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
+swiftc -O Sources/*.swift main.swift -o "$BINARY"
 # An ad-hoc signature is enough for a binary built on the Mac that runs it.
 codesign --force --sign - "$APP"
+rm -rf "$OLD_APP"
 
 cat > "$AGENT" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -58,8 +61,9 @@ launchctl bootstrap "$DOMAIN" "$AGENT"
 # not what it expects, which is likely on a Mac or macOS it was never tried on.
 sleep 2
 if ! launchctl print "$DOMAIN/$LABEL" | grep -q 'state = running'; then
-    echo "TouchBarOff did not stay running. Run '$BINARY off' to see the error." >&2
+    echo "TouchBar Flicker Fix did not stay running." >&2
+    echo "Run '$BINARY off' to see the error." >&2
     exit 1
 fi
 
-echo "TouchBarOff is running: the crossed-out lightbulb in the menu bar."
+echo "TouchBar Flicker Fix is running: see the segmented menu bar icon."

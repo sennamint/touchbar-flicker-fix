@@ -1,10 +1,11 @@
 #!/bin/bash
-# Stops TouchBarOff, lights the Touch Bar again and removes what install.sh created.
+# Stops TouchBar Flicker Fix and removes what install.sh created.
 set -euo pipefail
 
 LABEL=io.github.gbili.TouchBarOff
-APP="$HOME/Applications/TouchBarOff.app"
-BINARY="$APP/Contents/MacOS/TouchBarOff"
+APP="$HOME/Applications/TouchBar Flicker Fix.app"
+OLD_APP="$HOME/Applications/TouchBarOff.app"
+BINARY="$APP/Contents/MacOS/TouchBarFlickerFix"
 AGENT="$HOME/Library/LaunchAgents/$LABEL.plist"
 DOMAIN="gui/$(id -u)"
 
@@ -20,5 +21,6 @@ fi
 
 rm -f "$AGENT"
 rm -rf "$APP"
+rm -rf "$OLD_APP"
 
-echo "TouchBarOff is removed."
+echo "TouchBar Flicker Fix is removed."
