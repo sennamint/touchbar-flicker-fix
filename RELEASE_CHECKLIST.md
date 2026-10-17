@@ -2,9 +2,9 @@
 
 ## Repository setup
 
-- [ ] Choose the permanent GitHub repository or fork.
-- [ ] Point `origin` at that repository without losing the upstream reference.
-- [ ] Confirm the repository name and replace any remaining temporary wording.
+- [x] Choose the permanent GitHub repository or fork.
+- [x] Point `origin` at that repository without losing the upstream reference.
+- [x] Confirm the repository name and replace any remaining temporary wording.
 - [ ] Enable GitHub Issues for compatibility reports.
 
 ## Version and metadata
@@ -12,7 +12,7 @@
 - [x] Use `1.0.0` for the first public release.
 - [ ] Align `CFBundleShortVersionString`, `CFBundleVersion` and the Git tag.
 - [x] Confirm the copyright and contributor attribution.
-- [ ] Move the relevant `CHANGELOG.md` entries from `Unreleased` to the version
+- [x] Move the relevant `CHANGELOG.md` entries from `Unreleased` to the version
       and release date.
 
 ## Clean build
@@ -22,7 +22,7 @@
 - [ ] Confirm that the menu bar and app icons render correctly.
 - [ ] Confirm that the app starts again after logout or restart.
 - [ ] Run `./uninstall.sh` and confirm that the Touch Bar turns on again.
-- [ ] Confirm that no local build output or Finder metadata is committed.
+- [x] Confirm that no local build output or Finder metadata is committed.
 
 ## Behavioural test
 

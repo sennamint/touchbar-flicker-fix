@@ -35,9 +35,11 @@ before installing it on another model.
 
 ## Install from source
 
-Download or clone this repository, open Terminal in its directory, then run:
+Clone this repository and run the installer:
 
 ```sh
+git clone https://github.com/sennamint/touchbar-flicker-fix.git
+cd touchbar-flicker-fix
 ./install.sh
 ```
 
@@ -162,8 +164,9 @@ change.
 
 ## Credits
 
-TouchBar Flicker Fix is based on Guillermo Pages' `touchbar-off` project and
-retains its MIT licence.
+TouchBar Flicker Fix is based on Guillermo Pages'
+[`touchbar-off`](https://github.com/gbili/touchbar-off) project and retains its
+MIT licence.
 
 ## Licence
 
