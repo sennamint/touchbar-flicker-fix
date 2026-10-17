@@ -67,8 +67,6 @@ Click the app icon in the menu bar to choose a mode:
   a flickering value is found, the dialog shows the narrowing interval between
   the known flickering and stable levels both as text and on a colour-coded
   percentage scale.
-- **About TouchBar Flicker Fix…:** explains the purpose and limitations of the
-  app and shows its installed version.
 
 The initial stable setting is `0.25`, approximately 98 nits on the tested
 machine. Panel behaviour varies, so calibration is recommended. The selected
